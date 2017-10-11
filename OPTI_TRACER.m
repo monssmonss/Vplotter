@@ -15,8 +15,8 @@ while size(M_TRAC,1)<size(M_DEP,1)
 DIST=inf;
 b=1;
 for a=1:size(M_DEP,1) 
-    if M_DEP(a,7)==0 && (((M_TRAC(end,1))^2+(M_TRAC(end,2))^2)-((M_DEP(a,1))^2+(M_DEP(a,2))^2))^2<DIST
-        DIST=(((M_TRAC(end,1))^2+(M_TRAC(end,2))^2)-((M_DEP(a,1))^2+(M_DEP(a,2))^2))^2;
+    if M_DEP(a,7)==0 && (M_TRAC(end,1)-M_DEP(a,1))^2+(M_TRAC(end,2)-M_DEP(a,2))^2<DIST
+        DIST=(M_TRAC(end,1)-M_DEP(a,1))^2+(M_TRAC(end,2)-M_DEP(a,2))^2;
         M_CHOIX(1,:)=M_DEP(a,:);
         b=a;
     end
