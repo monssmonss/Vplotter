@@ -1,0 +1,21 @@
+function CommandeMoteur( ~,~)
+TRACER=evalin('base','TRACER');
+%% Trouver une equation general pour traduire tout les mouvements en longueur L1 et L2 puis en commande moteur
+
+%% offset de toutes les positions de 300 sur y et 200 sur x
+%% Ecartement initial des deux moteurs pour les tests 1600 .
+%% Origine 0,0 devient 200,300 soit une longueur L1 de 360mm sqrt(x^2+y^2) et L2 de 1431mm sqrt((x-1600)^2+y^2) 
+x1=0;
+
+
+eq1= (x-x1)^2+(y-y1)^2;
+eq2= (x-x2)^2+(y-y1)^2;
+disp('Comme le point de coordonnées (x,y) appartient aux cercles ((x1,y1),L1) et ((x2,y1),L2) on a : ')
+L1=sqrt(eq1);
+L2=sqrt(eq2);
+
+L1_cherche=vpa(subs(L1),3);
+L2_cherche=vpa(subs(L2),3);
+
+
+end

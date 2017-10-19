@@ -3,26 +3,26 @@ function Opti_tracer( M_DEP )
 
 %% initialisation est ce que tracer
 for a=1:size(M_DEP,1)
-    M_DEP(a,7)=0;
+    M_DEP(a,9)=0;
 end
 
 %% initialisation Tracer
 M_TRAC(1,:)=M_DEP(1,:);
-M_TRAC(1,7)=1;
-M_DEP(1,7)=0;
+M_TRAC(1,9)=1;
+M_DEP(1,9)=0;
 %% Recherche du meilleur Candidat
 while size(M_TRAC,1)<size(M_DEP,1)
 DIST=inf;
 b=1;
 for a=1:size(M_DEP,1) 
-    if M_DEP(a,7)==0 && (M_TRAC(end,1)-M_DEP(a,1))^2+(M_TRAC(end,2)-M_DEP(a,2))^2<DIST
+    if M_DEP(a,9)==0 && (M_TRAC(end,1)-M_DEP(a,1))^2+(M_TRAC(end,2)-M_DEP(a,2))^2<DIST
         DIST=(M_TRAC(end,1)-M_DEP(a,1))^2+(M_TRAC(end,2)-M_DEP(a,2))^2;
         M_CHOIX(1,:)=M_DEP(a,:);
         b=a;
     end
 end
 M_TRAC=[M_TRAC;M_CHOIX];
-M_DEP(b,7)=1;
+M_DEP(b,9)=1;
 end
 
 %% Liaison entre les tracer
